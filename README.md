@@ -1,3 +1,5 @@
+## Real-Time Orderbook Viewer with Order Simulation
+
 # Next.js + shadcn/ui App
 This project is a modern, responsive, and extendable trading order book UI built with:
 - Next.js (App Router)

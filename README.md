@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js + shadcn/ui App
+This project is a modern, responsive, and extendable trading order book UI built with:
+- Next.js (App Router)
+- shadcn/ui
+- Tailwind CSS
+- Recharts for depth chart visualization
+- WebSocket APIs (Bybit, OKX, Deribit)
 
 ## Getting Started
-
-First, run the development server:
-
-```bash
+Install dependencies:
+npm install
+# or
+yarn install
+Run the development server:
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 in your browser to see the result.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
+- Venue selector: OKX, Bybit, Deribit
+- Symbol input (e.g., BTC-USDT)
+- Live order book with 15-level depth
+- Recharts depth chart (bids/asks)
+- Simulated order placement (market/limit)
+- Metrics: fill %, slippage, market impact, time to fill
+- Responsive UI with dark mode toggle
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Styling and UI
+This project uses:
+- shadcn/ui (Headless UI + Tailwind + Radix)
+- Tailwind CSS utility-first design
+- Fully responsive layout
+- Accessible and keyboard-friendly
+
+
+## Folder Structure
+/app
+ /components - Reusable UI (DepthChart, OrderTable, etc.)
+ /hooks - useBybitOrderBook,
+  /lib - WebSocket utilities
+ /styles - Global styles (if needed)
+
+
+## Order Book Simulation
+
+- Visual indicator of order in orderbook
+- Order placement logic updates live
+- Fill percentage, estimated slippage & market impact
+- Adjustable delay timing for simulation (immediate, 5s, 10s, 30s)
+
+
+## Example Component
+// DepthChart.tsx
+import { ResponsiveContainer, AreaChart, Area } from 'recharts';
+export const DepthChart = ({ bids, asks }) => (
+ <ResponsiveContainer width="100%" height={300}>
+ <AreaChart data={bids}>
+ <Area type="monotone" dataKey="size" stroke="#0f0" fill="#0f08" />
+ </AreaChart>
+ </ResponsiveContainer>
+);
+
 
 ## Learn More
+- Next.js Documentation: https://nextjs.org/docs
+- shadcn/ui Docs: https://ui.shadcn.com/docs
+- Recharts: https://recharts.org/en-US/
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+Deploy your app instantly on Vercel:
+vercel

@@ -23,12 +23,6 @@ export default function OrderBookBybit() {
  const {
      bids,
      asks,
-     bids5s,
-     asks5s,
-     bids10s,
-     asks10s,
-     bids30s,
-     asks30s,
      isConnected,
      hasError
    } = Bybitwebhook();

@@ -24,12 +24,15 @@ const SimulationForm: React.FC = () => {
   const [recalculate, setRecalculate] = useState<boolean>(false);
   const [errors, setErrors] = useState<{ price?: string; quantity?: string }>({});
 
-  const {
-    bids, asks,
-    bids5s, asks5s,
-    bids10s, asks10s,
-    bids30s, asks30s
-  } = venue === 'OKX' ? useOKXOrderBook() : Bybitwebhook();
+const okxOrderBook = useOKXOrderBook();
+const bybitOrderBook = Bybitwebhook();
+
+const {
+  bids, asks,
+  bids5s, asks5s,
+  bids10s, asks10s,
+  bids30s, asks30s
+} = venue === 'OKX' ? okxOrderBook : bybitOrderBook;
 
   const validateForm = () => {
     const newErrors: { price?: string; quantity?: string } = {};

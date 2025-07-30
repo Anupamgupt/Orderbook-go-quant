@@ -20,12 +20,6 @@ export default function OrderBook() {
   const {
     bids,
     asks,
-    bids5s,
-    asks5s,
-    bids10s,
-    asks10s,
-    bids30s,
-    asks30s,
     isConnected,
     hasError
   } = Okswebhook();
